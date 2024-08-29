@@ -27,7 +27,7 @@ sh: ## Boot to a shell prompt
 setup-buildx: ## Setup a Buildx builder
 	@mkdir -p "$(BUILDX_CACHE_DIR)"
 	@if ! docker buildx ls | grep buildx-builder >/dev/null; then \
-		docker buildx create --append --name buildx-builder --driver docker-container --use && \
+		docker buildx create --name buildx-builder --driver docker-container --use && \
 		docker buildx inspect --bootstrap --builder buildx-builder; \
 	fi
 
